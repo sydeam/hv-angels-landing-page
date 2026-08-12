@@ -539,7 +539,7 @@ svg {
   right: -6px;
   bottom: 24px;
   display: flex;
-  min-width: 148px;
+  min-width: 164px;
   align-items: center;
   gap: 10px;
   padding: 13px 15px;
@@ -553,8 +553,10 @@ svg {
 
 .trainer__experience strong {
   color: var(--gold-bright);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 2rem;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 2.65rem;
+  font-weight: 800;
+  letter-spacing: -0.07em;
   line-height: 1;
 }
 
@@ -591,12 +593,20 @@ svg {
 }
 
 .trainer__stat-number {
+  display: inline-flex;
   flex: 0 0 auto;
-  color: var(--rose);
+  align-items: center;
+  padding: 9px 13px;
+  border: 1px solid rgba(168, 71, 105, 0.2);
+  border-radius: 14px;
+  color: var(--wine);
+  background: linear-gradient(135deg, var(--rose-soft), rgba(249, 233, 189, 0.68));
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 2.25rem;
-  font-weight: 700;
+  font-size: clamp(2.55rem, 10vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
   line-height: 1;
+  box-shadow: 0 10px 24px rgba(104, 29, 60, 0.1);
 }
 
 .trainer__stat strong {
@@ -1210,18 +1220,27 @@ svg {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.055);
+  cursor: pointer;
   transition: background-color 180ms ease, border-color 180ms ease;
 }
 
 .contact__location:hover {
-  border-color: rgba(217, 170, 72, 0.4);
+  border-color: rgba(255, 255, 255, 0.28);
   background: rgba(255, 255, 255, 0.08);
 }
 
-.contact__location > svg:first-child {
-  width: 25px;
-  height: 25px;
-  color: var(--gold-bright);
+.contact__maps-icon {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.contact__maps-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .contact__location strong,
@@ -1235,8 +1254,9 @@ svg {
 
 .contact__location small {
   margin-top: 2px;
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 0.67rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.69rem;
+  font-weight: 600;
 }
 
 .contact__location .contact__arrow {
@@ -1264,10 +1284,10 @@ svg {
   display: block;
   margin-bottom: 24px;
   color: var(--gold-bright);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.85rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   text-align: center;
 }
 

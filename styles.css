@@ -856,24 +856,56 @@ svg {
   background: linear-gradient(135deg, var(--gold-bright), var(--gold));
 }
 
-.practice {
+.practice.section-padding {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  padding: clamp(32px, 5vw, 62px) 0 clamp(32px, 5vw, 62px);
   color: var(--white);
-  background: #140a10;
+  background:
+    linear-gradient(rgba(168, 71, 105, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 71, 105, 0.03) 1px, transparent 1px),
+    var(--blush);
+  background-size: 36px 36px;
 }
 
 .practice::before {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(115deg, transparent 44%, rgba(168, 71, 105, 0.06) 44%),
-    radial-gradient(circle at 15% 30%, rgba(217, 170, 72, 0.1), transparent 28%);
-  content: "";
+  display: none;
 }
 
 .practice .container {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 54px 22px;
+  border: 1px solid rgba(217, 170, 72, 0.25);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(217, 170, 72, 0.11), transparent 27%),
+    linear-gradient(145deg, #210d19 0%, #13090f 58%, #2a0d1c 100%);
+  box-shadow: 0 30px 70px rgba(48, 18, 34, 0.2);
+}
+
+.practice .container::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(115deg, transparent 44%, rgba(168, 71, 105, 0.08) 44%);
+  content: "";
+  pointer-events: none;
+}
+
+.practice .container::after {
+  position: absolute;
+  right: -130px;
+  bottom: -180px;
+  z-index: -1;
+  width: 330px;
+  height: 330px;
+  border: 1px solid rgba(217, 170, 72, 0.11);
+  border-radius: 50%;
+  box-shadow: 0 0 0 34px rgba(217, 170, 72, 0.025), 0 0 0 68px rgba(217, 170, 72, 0.018);
+  content: "";
+  pointer-events: none;
 }
 
 .practice__heading {
@@ -1156,6 +1188,7 @@ svg {
 
 .contact__content h2 {
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .contact__content h3 {
@@ -1164,6 +1197,7 @@ svg {
   font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: 0.025em;
+  text-align: center;
 }
 
 .contact__location {
@@ -1215,6 +1249,7 @@ svg {
   margin-bottom: 8px;
   color: rgba(255, 255, 255, 0.68);
   font-size: 0.84rem;
+  text-align: center;
 }
 
 .contact__prompt {
@@ -1222,16 +1257,18 @@ svg {
   color: var(--white);
   font-size: 1rem;
   font-weight: 800;
+  text-align: center;
 }
 
 .contact__phone {
-  display: inline-block;
+  display: block;
   margin-bottom: 24px;
   color: var(--gold-bright);
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.85rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+  text-align: center;
 }
 
 .contact__actions {
@@ -1532,6 +1569,11 @@ svg {
   .course-card--featured h3 {
     max-width: 620px;
     font-size: 1.8rem;
+  }
+
+  .practice .container {
+    padding: 70px 54px;
+    border-radius: 34px;
   }
 
   .practice__gallery {

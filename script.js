@@ -32,75 +32,77 @@
     revealElements.forEach((element) => revealObserver.observe(element));
   }
 
-  const slides = [...document.querySelectorAll("[data-slide]")];
-  const slideDots = [...document.querySelectorAll("[data-slide-dot]")];
-  const slider = document.querySelector(".photo-slider");
-  let activeSlide = 0;
-  let sliderTimer;
-  let touchStartX = 0;
+  const carouselControllers = [...document.querySelectorAll("[data-carousel]")].map((carousel) => {
+    const slides = [...carousel.querySelectorAll("[data-carousel-slide]")];
+    const dots = [...carousel.querySelectorAll("[data-carousel-dot]")];
+    const interval = Number(carousel.dataset.interval) || 4500;
+    let activeSlide = 0;
+    let timer;
+    let touchStartX = 0;
 
-  const showSlide = (index) => {
-    activeSlide = (index + slides.length) % slides.length;
+    const showSlide = (index) => {
+      activeSlide = (index + slides.length) % slides.length;
 
-    slides.forEach((slide, slideIndex) => {
-      const isActive = slideIndex === activeSlide;
-      slide.classList.toggle("is-active", isActive);
-      slide.setAttribute("aria-hidden", String(!isActive));
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === activeSlide;
+        slide.classList.toggle("is-active", isActive);
+        slide.setAttribute("aria-hidden", String(!isActive));
+      });
+
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === activeSlide;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-current", String(isActive));
+      });
+    };
+
+    const stop = () => window.clearInterval(timer);
+    const start = () => {
+      if (prefersReducedMotion || slides.length < 2 || document.hidden) return;
+      stop();
+      timer = window.setInterval(() => showSlide(activeSlide + 1), interval);
+    };
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        showSlide(Number(dot.dataset.carouselDot));
+        start();
+      });
     });
 
-    slideDots.forEach((dot, dotIndex) => {
-      const isActive = dotIndex === activeSlide;
-      dot.classList.toggle("is-active", isActive);
-      dot.setAttribute("aria-current", String(isActive));
-    });
-  };
-
-  const stopSlider = () => window.clearInterval(sliderTimer);
-
-  const startSlider = () => {
-    if (prefersReducedMotion || slides.length < 2) return;
-    stopSlider();
-    sliderTimer = window.setInterval(() => showSlide(activeSlide + 1), 4500);
-  };
-
-  slideDots.forEach((dot) => {
-    dot.addEventListener("click", () => {
-      showSlide(Number(dot.dataset.slideDot));
-      startSlider();
-    });
-  });
-
-  if (slider) {
-    slider.addEventListener("mouseenter", stopSlider);
-    slider.addEventListener("mouseleave", startSlider);
-    slider.addEventListener("focusin", stopSlider);
-    slider.addEventListener("focusout", startSlider);
-    slider.addEventListener(
+    carousel.addEventListener("mouseenter", stop);
+    carousel.addEventListener("mouseleave", start);
+    carousel.addEventListener("focusin", stop);
+    carousel.addEventListener("focusout", start);
+    carousel.addEventListener(
       "touchstart",
       (event) => {
         touchStartX = event.changedTouches[0].clientX;
       },
       { passive: true },
     );
-    slider.addEventListener(
+    carousel.addEventListener(
       "touchend",
       (event) => {
         const distance = event.changedTouches[0].clientX - touchStartX;
         if (Math.abs(distance) < 45) return;
         showSlide(activeSlide + (distance < 0 ? 1 : -1));
-        startSlider();
+        start();
       },
       { passive: true },
     );
-  }
 
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) stopSlider();
-    else startSlider();
+    showSlide(0);
+    start();
+    return { start, stop };
   });
 
-  showSlide(0);
-  startSlider();
+  document.addEventListener("visibilitychange", () => {
+    carouselControllers.forEach((controller) => {
+      if (document.hidden) controller.stop();
+      else controller.start();
+    });
+  });
 
   const modal = document.querySelector("#admission-modal");
   const modalDialog = modal?.querySelector(".modal__dialog");

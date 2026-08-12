@@ -62,9 +62,9 @@
           </div>
 
           <div class="hero__showcase" data-reveal>
-            <div class="photo-slider" aria-label="HV Angels students and training" aria-roledescription="carousel">
+            <div class="photo-slider" data-carousel data-interval="4500" aria-label="HV Angels students and training" aria-roledescription="carousel">
               <div class="photo-slider__frame">
-                <figure class="photo-slider__slide is-active" data-slide aria-hidden="false">
+                <figure class="photo-slider__slide is-active" data-carousel-slide aria-hidden="false">
                   <img
                     src="assets/web/group-1.jpg"
                     alt="HV Angels students holding their course certificates"
@@ -73,7 +73,7 @@
                     fetchpriority="high"
                   />
                 </figure>
-                <figure class="photo-slider__slide" data-slide aria-hidden="true">
+                <figure class="photo-slider__slide" data-carousel-slide aria-hidden="true">
                   <img
                     src="assets/web/group-2.jpg"
                     alt="HV Angels students displaying professional bridal looks"
@@ -82,7 +82,7 @@
                     loading="lazy"
                   />
                 </figure>
-                <figure class="photo-slider__slide" data-slide aria-hidden="true">
+                <figure class="photo-slider__slide" data-carousel-slide aria-hidden="true">
                   <img
                     src="assets/web/group-3.jpg"
                     alt="HV Angels students and trainer at a certification event"
@@ -99,9 +99,9 @@
               </div>
 
               <div class="photo-slider__dots" aria-label="Choose a photo">
-                <button class="is-active" type="button" data-slide-dot="0" aria-label="Show photo 1" aria-current="true"></button>
-                <button type="button" data-slide-dot="1" aria-label="Show photo 2" aria-current="false"></button>
-                <button type="button" data-slide-dot="2" aria-label="Show photo 3" aria-current="false"></button>
+                <button class="is-active" type="button" data-carousel-dot="0" aria-label="Show photo 1" aria-current="true"></button>
+                <button type="button" data-carousel-dot="1" aria-label="Show photo 2" aria-current="false"></button>
+                <button type="button" data-carousel-dot="2" aria-label="Show photo 3" aria-current="false"></button>
               </div>
             </div>
 
@@ -169,11 +169,33 @@
                 <div class="award-card__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M17 3h4v2a5 5 0 0 1-4.1 4.9A5 5 0 0 1 13 13.8V17h3v2H8v-2h3v-3.2a5 5 0 0 1-3.9-3.9A5 5 0 0 1 3 5V3h4V2h10v1ZM5 5a3 3 0 0 0 2 2.8V5H5Zm12 2.8A3 3 0 0 0 19 5h-2v2.8ZM9 4v5a3 3 0 0 0 6 0V4H9Z" /></svg>
                 </div>
-                <div>
+                <div class="award-card__copy">
                   <strong>National &amp; international recognition</strong>
                   <p>
                     Honoured with multiple awards, including <em>Makeup Artist of the Year</em> at the Influential Women Awards and an Ugadi Utsav award from Shoppers Stop.
                   </p>
+                </div>
+
+                <div class="recognition-carousel" data-carousel data-interval="4800" aria-label="Trainer awards and recognition" aria-roledescription="carousel">
+                  <div class="recognition-carousel__frame">
+                    <figure class="recognition-carousel__slide is-active" data-carousel-slide aria-hidden="false">
+                      <img src="assets/web/demo-1.jpg" alt="HV Angels trainer receiving recognition at the South India Beauty Expo" width="1600" height="1067" loading="lazy" />
+                      <figcaption>South India Beauty Expo recognition</figcaption>
+                    </figure>
+                    <figure class="recognition-carousel__slide" data-carousel-slide aria-hidden="true">
+                      <img src="assets/web/demo-2.jpg" alt="HV Angels trainer receiving the Ugadi Utsav award at Shoppers Stop" width="1600" height="1067" loading="lazy" />
+                      <figcaption>Ugadi Utsav award</figcaption>
+                    </figure>
+                    <figure class="recognition-carousel__slide" data-carousel-slide aria-hidden="true">
+                      <img src="assets/web/demo-3.jpg" alt="HV Angels trainer displaying South India makeover awards" width="1600" height="1067" loading="lazy" />
+                      <figcaption>South India makeover honours</figcaption>
+                    </figure>
+                  </div>
+                  <div class="carousel-dots carousel-dots--dark" aria-label="Choose a recognition photo">
+                    <button class="is-active" type="button" data-carousel-dot="0" aria-label="Show recognition photo 1" aria-current="true"></button>
+                    <button type="button" data-carousel-dot="1" aria-label="Show recognition photo 2" aria-current="false"></button>
+                    <button type="button" data-carousel-dot="2" aria-label="Show recognition photo 3" aria-current="false"></button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -310,33 +332,6 @@
         </div>
       </section>
 
-      <section class="practice section-padding">
-        <div class="container">
-          <div class="practice__heading" data-reveal>
-            <h2>Not Just Classes. <em>Real Practice.</em></h2>
-            <p class="practice__steps">Watch. Practice. Get corrected. <br />Try again.</p>
-            <p>
-              Our training focuses on hands on learning and real time client scenarios, so you’re better prepared for actual work.
-            </p>
-          </div>
-
-          <div class="practice__gallery" data-reveal>
-            <figure class="practice__photo practice__photo--one">
-              <img src="assets/web/demo-1.jpg" alt="HV Angels trainer receiving recognition at the South India Beauty Expo" width="1600" height="1067" loading="lazy" />
-              <figcaption>Industry recognition</figcaption>
-            </figure>
-            <figure class="practice__photo practice__photo--two">
-              <img src="assets/web/demo-2.jpg" alt="HV Angels trainer receiving the Ugadi Utsav award at Shoppers Stop" width="1600" height="1067" loading="lazy" />
-              <figcaption>Ugadi Utsav honour</figcaption>
-            </figure>
-            <figure class="practice__photo practice__photo--three">
-              <img src="assets/web/demo-3.jpg" alt="HV Angels trainer displaying South India makeover awards" width="1600" height="1067" loading="lazy" />
-              <figcaption>Award-winning mentorship</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
       <section class="benefits section-padding">
         <div class="container">
           <div class="section-heading section-heading--center" data-reveal>
@@ -383,6 +378,58 @@
               <h3>Hands On Training</h3>
               <p>Learn by actually doing the work—not by only watching demonstrations.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="practice section-padding">
+        <div class="container">
+          <div class="practice__heading" data-reveal>
+            <h2>Not Just Classes. <em>Real Practice.</em></h2>
+            <p class="practice__steps">Watch. Practice. Get corrected. <br />Try again.</p>
+            <p>
+              Our training focuses on hands on learning and real time client scenarios, so you’re better prepared for actual work.
+            </p>
+          </div>
+
+          <div class="bridal-carousel" data-carousel data-interval="4000" data-reveal aria-label="Bridal looks created during practical training" aria-roledescription="carousel">
+            <div class="bridal-carousel__frame">
+              <figure class="bridal-carousel__slide is-active" data-carousel-slide aria-hidden="false">
+                <img src="assets/web/bridal-1.jpg" alt="Traditional purple and gold bridal makeup look" width="1400" height="2100" loading="lazy" />
+              </figure>
+              <figure class="bridal-carousel__slide" data-carousel-slide aria-hidden="true">
+                <img src="assets/web/bridal-2.jpg" alt="Professional red and gold bridal makeup look" width="1400" height="2100" loading="lazy" />
+              </figure>
+              <figure class="bridal-carousel__slide" data-carousel-slide aria-hidden="true">
+                <img src="assets/web/bridal-3.jpg" alt="Traditional bridal makeup look with a dark studio background" width="1400" height="2100" loading="lazy" />
+              </figure>
+              <figure class="bridal-carousel__slide" data-carousel-slide aria-hidden="true">
+                <img src="assets/web/bridal-4.jpg" alt="Elegant reception makeup and hairstyling look" width="1400" height="2099" loading="lazy" />
+              </figure>
+              <figure class="bridal-carousel__slide" data-carousel-slide aria-hidden="true">
+                <img src="assets/web/bridal-5.jpg" alt="Purple and gold bridal makeup portrait" width="1400" height="2100" loading="lazy" />
+              </figure>
+              <figure class="bridal-carousel__slide" data-carousel-slide aria-hidden="true">
+                <img src="assets/web/bridal-6.jpg" alt="Bridal makeup look photographed beside a studio mirror" width="1400" height="2100" loading="lazy" />
+              </figure>
+              <figure class="bridal-carousel__slide" data-carousel-slide aria-hidden="true">
+                <img src="assets/web/bridal-7.jpg" alt="Close-up red and gold bridal makeup look" width="1400" height="2100" loading="lazy" />
+              </figure>
+
+              <div class="bridal-carousel__badge">
+                <span>Real looks</span>
+                <strong>Practical training</strong>
+              </div>
+            </div>
+            <div class="carousel-dots" aria-label="Choose a bridal look">
+              <button class="is-active" type="button" data-carousel-dot="0" aria-label="Show bridal look 1" aria-current="true"></button>
+              <button type="button" data-carousel-dot="1" aria-label="Show bridal look 2" aria-current="false"></button>
+              <button type="button" data-carousel-dot="2" aria-label="Show bridal look 3" aria-current="false"></button>
+              <button type="button" data-carousel-dot="3" aria-label="Show bridal look 4" aria-current="false"></button>
+              <button type="button" data-carousel-dot="4" aria-label="Show bridal look 5" aria-current="false"></button>
+              <button type="button" data-carousel-dot="5" aria-label="Show bridal look 6" aria-current="false"></button>
+              <button type="button" data-carousel-dot="6" aria-label="Show bridal look 7" aria-current="false"></button>
+            </div>
           </div>
         </div>
       </section>
